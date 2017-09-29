@@ -1,0 +1,1 @@
+var maijs = 1;
