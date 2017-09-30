@@ -1,13 +1,35 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
+$white: #fff;
+$blue: #1b3f73;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+  background: cover;
+  overflow-y: scroll;
+overflow-x: hidden;
+}
+
+.welcome{
+	font-weight: 200;
 }
 
 .sidebar {
 	.warmenu {
 	margin-top: 200px;
 	}
+}
+
+.text-white{
+	color: $white;
+}
+
+.blue{
+	background: $blue;
+	color: #fff;
+}
+
+.form-signin-heading{
+	padding-bottom:25px;
 }
