@@ -1,1 +1,1 @@
-var maijs = 1;
+show collections
