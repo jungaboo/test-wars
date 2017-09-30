@@ -1,18 +1,13 @@
-var gulp = require('gulp'),
-    watch = require('gulp-watch');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 
-gulp.task('stream', function () {
-	// Endless stream mode
-    return watch('css/style.css', { ignoreInitial: false })
-        .pipe(gulp.dest('build'));
+gulp.task('styles', function() {
+    gulp.src('app/scss/style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('app/css/'))
 });
 
-gulp.task('callback', function () {
-	// Callback mode, useful if any plugin in the pipeline depends on the `end`/`flush` event
-    return watch('css/style.css', function () {
-        gulp.src('css/style.css')
-            .pipe(gulp.dest('build'));
-    });
+//Watch task
+gulp.task('default',function() {
+    gulp.watch('app/scss/style.scss',['styles']);
 });
-
-gulp.task('default', ['stream','callback']);
