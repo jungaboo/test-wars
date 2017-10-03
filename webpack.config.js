@@ -1,17 +1,27 @@
-var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
-
-module.exports = {
-  context: __dirname + "/app",
-  devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/scripts.js",
+var path = require("path");
+var DIST_DIR = path.resolve(__dirname, "dist");
+var SRC_DIR = path.resolve(__dirname, "src");
+var config = {
+  entry: SRC_DIR + "/app/index.js",
   output: {
-    path: __dirname + "/js",
-    filename: "scripts.min.js"
+    path: DIST_DIR + "/app",
+    filename: "bundle.js",
+    publicPath: "/app/"
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  module:{
+    loaders:  [
+      {
+        test: "/\.js/?",
+        include: SRC_DIR,
+        loader: "babel-loader",
+        query:{
+          presets: ["react", "es2015", "stage-2"]
+        }
+      }
+
+    ]
+  }
 };
+
+module.exports = config;
