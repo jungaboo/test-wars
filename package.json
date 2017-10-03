@@ -1,7 +1,7 @@
 {
-  "name": "test-wars",
+  "name": "browsergame",
   "version": "1.0.0",
-  "description": "learningstuff",
+  "description": "learning webpack",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/jungaboo/test-wars.git"
   },
-  "author": "Fredrik Larsen",
+  "author": "Fredrik",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jungaboo/test-wars/issues"
   },
-  "homepage": "https://github.com/jungaboo/test-wars#readme"
+  "homepage": "https://github.com/jungaboo/test-wars#readme",
+  "dependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2"
+  }
 }
